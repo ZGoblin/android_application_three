@@ -2,6 +2,9 @@ package com.example.zaetsdialog
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import com.afollestad.materialdialogs.MaterialDialog
 import com.example.zaetsdialog.databinding.ActivityMainBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
@@ -31,10 +34,29 @@ class MainActivity : AppCompatActivity() {
         binding.btnAlertDialog.setOnClickListener {
             showAlertDialog()
         }
+        binding.btnMaterialDialog.setOnClickListener {
+            showMaterialDialog()
+        }
+    }
+
+    private fun showMaterialDialog() {
+        MaterialDialog(this).show {
+            title(text = "Simple title")
+            message(text = "Simple message in material dialog")
+            icon(R.drawable.ic_launcher_background)
+            positiveButton(text = "Okey, go back")
+        }
     }
 
     private fun showAlertDialog() {
-
+        AlertDialog.Builder(this)
+            .setTitle("Simple title")
+            .setMessage("Simple message in alert dialog")
+            .setIcon(R.drawable.ic_launcher_background)
+            .setPositiveButton("Okay, go back") { dialog, wich ->
+                Toast.makeText(this, "", Toast.LENGTH_SHORT)
+            }
+            .show()
     }
 
     private fun showBottomSheetXML() {
@@ -43,7 +65,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showBottomSheetDialogFragment() {
-
+        supportFragmentManager.beginTransaction()
+            .add(MyBottomSheetDialogFragment(), "TAG")
+            .commitAllowingStateLoss()
     }
 
     private fun showDialogFragment() {

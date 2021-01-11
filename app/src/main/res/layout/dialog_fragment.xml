@@ -34,7 +34,8 @@
             android:text="Go back"
             android:background="@drawable/button_background"
             android:textColor="@color/white"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

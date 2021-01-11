@@ -1,11 +1,9 @@
 package com.example.zaetsdialog
 
-import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.DialogFragment
 import com.example.zaetsdialog.databinding.DialogFragmentBinding
@@ -19,6 +17,7 @@ class MyDialogFragment: DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DialogFragmentBinding.inflate(inflater, container, false)
+
         binding.btnBack.setOnClickListener {
             dialog?.dismiss()
         }
